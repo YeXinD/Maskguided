@@ -1,0 +1,3 @@
+https://github.com/tensorflow/models/tree/master/research/slim
+
+https://github.com/tensorflow/models/tree/master/research/adv_imagenet_models
