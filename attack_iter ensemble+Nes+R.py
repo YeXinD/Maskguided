@@ -161,40 +161,40 @@ def graph(x, mask, y, i, x_max, x_min, grad):
     # with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
     #     logits_v3, end_points_v3 = inception_v3.inception_v3(
     #         input_diversity(x_nes), num_classes=num_classes, is_training=False)
-    #     logits_v3_rotated, end_points_v3_R = inception_v3.inception_v3(
+    #     logits_v3_rotated, _ = inception_v3.inception_v3(
     #         rotate(x_nes), num_classes=num_classes, is_training=False, reuse=True)
     with slim.arg_scope(inception_v4.inception_v4_arg_scope()):
         logits_v4, end_points_v4 = inception_v4.inception_v4(
             input_diversity(x_nes), num_classes=num_classes, is_training=False)
-        logits_v4_rotated, end_points_v4_R = inception_v4.inception_v4(
+        logits_v4_rotated, _ = inception_v4.inception_v4(
             rotate(x_nes), num_classes=num_classes, is_training=False, reuse=True)
     with slim.arg_scope(inception_resnet_v2.inception_resnet_v2_arg_scope()):
         logits_res_v2, end_points_res_v2 = inception_resnet_v2.inception_resnet_v2(
             input_diversity(x_nes), num_classes=num_classes, is_training=False,reuse=True)
-        logits_res_v2_rotated, end_points_res_v2_R = inception_resnet_v2.inception_resnet_v2(
+        logits_res_v2_rotated, _ = inception_resnet_v2.inception_resnet_v2(
             rotate(x_nes), num_classes=num_classes, is_training=False, reuse=True)
     with slim.arg_scope(resnet_v2.resnet_arg_scope()):
         logits_resnet, end_points_resnet = resnet_v2.resnet_v2_152(
             input_diversity(x_nes), num_classes=num_classes, is_training=False)
-        logits_resnet_rotated, end_points_resnet_R = resnet_v2.resnet_v2_152(
+        logits_resnet_rotated, _ = resnet_v2.resnet_v2_152(
             rotate(x_nes), num_classes=num_classes, is_training=False, reuse=True)
 
     with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
         logits_ens3_adv_v3, end_points_ens3_adv_v3 = inception_v3.inception_v3(
             input_diversity(x_nes), num_classes=num_classes, is_training=False, scope='Ens3AdvInceptionV3')
-        logits_ens3_adv_v3_rotated, end_points_ens3_adv_v3_R = inception_v3.inception_v3(
+        logits_ens3_adv_v3_rotated, _ = inception_v3.inception_v3(
             rotate(x_nes), num_classes=num_classes, is_training=False, scope='Ens3AdvInceptionV3', reuse=True)
 
     with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
         logits_ens4_adv_v3, end_points_ens4_adv_v3 = inception_v3.inception_v3(
             input_diversity(x_nes), num_classes=num_classes, is_training=False, scope='Ens4AdvInceptionV3')
-        logits_ens4_adv_v3_rotated, end_points_ens4_adv_v3_R = inception_v3.inception_v3(
+        logits_ens4_adv_v3_rotated, _ = inception_v3.inception_v3(
             rotate(x_nes), num_classes=num_classes, is_training=False, scope='Ens4AdvInceptionV3', reuse=True)
 
     with slim.arg_scope(inception_resnet_v2.inception_resnet_v2_arg_scope()):
         logits_ens_advres_v2, end_points_ens_advres_v2 = inception_resnet_v2.inception_resnet_v2(
             input_diversity(x_nes), num_classes=num_classes, is_training=False, scope='EnsAdvInceptionResnetV2')
-        logits_ens_advres_v2_rotated, end_points_ens_advres_v2_R = inception_resnet_v2.inception_resnet_v2(
+        logits_ens_advres_v2_rotated, _ = inception_resnet_v2.inception_resnet_v2(
             rotate(x_nes), num_classes=num_classes, is_training=False, scope='EnsAdvInceptionResnetV2', reuse=True)
 
     logits = ( logits_v4 + logits_res_v2 + logits_resnet
@@ -203,12 +203,12 @@ def graph(x, mask, y, i, x_max, x_min, grad):
               + logits_ens3_adv_v3_rotated + logits_ens4_adv_v3_rotated + logits_ens_advres_v2_rotated) / 12
 
     auxlogits = (
-                # end_points_v3['AuxLogits'] + end_points_v3_R['AuxLogits']
-                 end_points_v4['AuxLogits'] + end_points_v4_R['AuxLogits']
-                 + end_points_res_v2['AuxLogits'] + end_points_res_v2_R['AuxLogits']
-                 + end_points_ens3_adv_v3['AuxLogits'] + end_points_ens3_adv_v3_R['AuxLogits']
-                 + end_points_ens4_adv_v3['AuxLogits'] + end_points_ens4_adv_v3_R['AuxLogits']
-                 + end_points_ens_advres_v2['AuxLogits'] + end_points_ens_advres_v2_R['AuxLogits']) / 10
+                # end_points_v3['AuxLogits'] 
+                 end_points_v4['AuxLogits'] 
+                 + end_points_res_v2['AuxLogits'] 
+                 + end_points_ens3_adv_v3['AuxLogits'] 
+                 + end_points_ens4_adv_v3['AuxLogits'] 
+                 + end_points_ens_advres_v2['AuxLogits'] ) / 10
 
     cross_entropy = tf.losses.softmax_cross_entropy(y,
                                                     logits,
