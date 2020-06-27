@@ -207,7 +207,7 @@ def graph(x, mask, y, i, x_max, x_min, grad):
                 + end_points_ens3_adv_v3['AuxLogits'] 
                  + end_points_ens4_adv_v3['AuxLogits']
                  # + end_points_ens_advres_v2['AuxLogits'] 
-                 ) / 10
+                 ) / 5
 
     cross_entropy = tf.losses.softmax_cross_entropy(y,
                                                     logits,
