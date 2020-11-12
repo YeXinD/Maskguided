@@ -9,5 +9,7 @@ We combine the proposed rotation input strategy with iterative attack method to 
 ![image](https://github.com/YeXinD/Maskguided/blob/master/pipline.png)
 
 ## Sample
+
 The noises of the generated adversarial examples far less visible than the vanilla global noise adversarial examples.
+
 ![image](https://github.com/YeXinD/Maskguided/blob/master/sample/sample%201.png)
