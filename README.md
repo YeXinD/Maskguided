@@ -5,3 +5,6 @@ First we should get the image saliency map of an input image, codes see "https:/
 
 Pipline
 ![image](https://github.com/YeXinD/Maskguided/blob/master/pipline.png)
+
+Sample
+![image](https://github.com/YeXinD/Maskguided/blob/master/sample/sample%201.png)
