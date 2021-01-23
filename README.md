@@ -16,10 +16,12 @@ The noises of the generated adversarial examples far less visible than the vanil
 
 ## Citing this work 
 If you find this work is useful in your research, please consider citing:
-@inproceedings{eykholt2018robust,
-  title={Robust physical-world attacks on deep learning visual classification},
-  author={Eykholt, Kevin and Evtimov, Ivan and Fernandes, Earlence and Li, Bo and Rahmati, Amir and Xiao, Chaowei and Prakash, Atul and Kohno, Tadayoshi and Song, Dawn},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  pages={1625--1634},
-  year={2018}
+
+@article{duan100mask,
+  title={Mask-guided noise restriction adversarial attacks for image classification},
+  author={Duan, Yexin and Zhou, Xingyu and Zou, Junhua and Qiu, Junyang and Zhang, Jin and Pan, Zhisong},
+  journal={Computers \& Security},
+  volume={100},
+  pages={102111},
+  publisher={Elsevier}
 }
