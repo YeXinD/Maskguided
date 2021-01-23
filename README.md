@@ -13,3 +13,13 @@ In addition, we combine the proposed rotation input strategy with iterative atta
 The noises of the generated adversarial examples far less visible than the vanilla global noise adversarial examples.
 
 ![image](https://github.com/YeXinD/Maskguided/blob/master/sample/sample%201.png)
+
+## Citing this work 
+If you find this work is useful in your research, please consider citing:
+@inproceedings{eykholt2018robust,
+  title={Robust physical-world attacks on deep learning visual classification},
+  author={Eykholt, Kevin and Evtimov, Ivan and Fernandes, Earlence and Li, Bo and Rahmati, Amir and Xiao, Chaowei and Prakash, Atul and Kohno, Tadayoshi and Song, Dawn},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={1625--1634},
+  year={2018}
+}
