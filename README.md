@@ -14,14 +14,3 @@ The noises of the generated adversarial examples far less visible than the vanil
 
 ![image](https://github.com/YeXinD/Maskguided/blob/master/sample/sample%201.png)
 
-## Citing this work 
-If you find this work is useful in your research, please consider citing:
-
-@article{duan100mask,
-  title={Mask-guided noise restriction adversarial attacks for image classification},
-  author={Duan, Yexin and Zhou, Xingyu and Zou, Junhua and Qiu, Junyang and Zhang, Jin and Pan, Zhisong},
-  journal={Computers \& Security},
-  volume={100},
-  pages={102111},
-  publisher={Elsevier}
-}
